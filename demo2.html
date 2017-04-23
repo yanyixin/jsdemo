@@ -3,10 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #input-pwd{
+            display: block;
+            margin-top: 20px;
+        }
+        .wrong{
+            border: 1px solid red;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
 </head>
 <body>
+<div class="input-name-container">
+    <input type="text" id="input-name">
+
+</div>
+<div class="input-pwd-container">
+    <input type="text" id="input-pwd">
+</div>
+
+<input type="button" value="确定" id="submit">
 <script>
-    //明天要学习js事件绑定，callback回调，用原生js写一个分页
+    var view = {
+        init:function () {
+            this.bindEvents();
+        },
+        errorShow:function (ele,msg) {
+            $(ele).addClass('wrong');
+
+            $(ele).parent().append('<div class="input-msg">'+msg+'</div>');
+
+        },
+        
+        errorHide:function (ele) {
+            $(ele).removeClass('wrong');
+            $(ele).next().remove();
+        },
+
+        validate : function (ele,val,msg) {
+            var _this  = this;
+            if(val){
+                _this.errorHide(ele)
+            }else{
+
+                _this.errorShow(ele,msg)
+            }
+        },
+        bindEvents:function () {
+            var _this = this;
+            $('#input-name').on('input',function () {
+                var nameValue = $(this).val();
+                _this.validate('#input-name',nameValue,"请输入姓名")
+            });
+
+            $('#input-pwd').on('input',function () {
+                var pwdValue = $(this).val();
+                _this.validate("#input-pwd",pwdValue,"请输入密码")
+            });
+
+            $('#submit').on('click',function () {
+                var nameValue = $('#input-name').val();
+                var pwdValue = $('#input-pwd').val();
+                _this.validate('#input-name',nameValue,"请输入姓名")
+                _this.validate('#input-pwd',pwdValue,"请输入密码")
+            })
+
+
+        }
+    }
+
+    view.init();
 
 </script>
 </body>
