@@ -40,12 +40,14 @@
             $(ele).addClass('wrong');
             $(ele).next().show()
         },
-        
+
+        //隐藏错误函数
         errorHide:function (ele) {
             $(ele).removeClass('wrong');
             $(ele).next().hide();
         },
 
+        //验证函数
         validate : function (ele,val) {
             var _this  = this;
             if(!val){
