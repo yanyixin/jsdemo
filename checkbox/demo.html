@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        .cb-label{
+            cursor: pointer;
+            border: 1px solid;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            display: inline-block;
+            text-align: center;
+        }
+        .container input[type=checkbox]{
+            width: 100px;
+            position: absolute;
+            height: 50px;
+            line-height: 50px;
+            opacity: 0;
+
+        }
+        .container input[type=checkbox]:checked + label{
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <span>
+        <input type="checkbox" value="9">
+
+        <label class="cb-label" for="9">风景</label>
+    </span>
+
+    <div>
+        第一种方法，将input设置和label一样的宽度和高度，然后input设置opacity:0;在css中设置:checked伪类控制label的显示
+    </div>
+</div>
+</body>
+</html>
