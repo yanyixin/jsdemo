@@ -1,9 +1,10 @@
 
-$checked-color: #34b93d;
-$unchecked-color: #000;
-$checkbox-height: 20px;
+$checked-color: #fff;
+$checked-bg:rgb(101,141,181);
+$unchecked-color: #cfcece;
+$checkbox-height: 15px;
 $background-color:#fff;
-$font-color:#efefef;
+$font-color:#dcdcdc;
 $duration: .4s;
 
 html, body{
@@ -21,8 +22,8 @@ input[type=checkbox]{
 .cb-label{
   height: $checkbox-height;
   width: $checkbox-height;
-  background: transparent;
-  border: $checkbox-height * .1 solid $unchecked-color;
+  background: rgb(249,249,249);
+  border: $checkbox-height * .05 solid $unchecked-color;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -51,8 +52,8 @@ input[type=checkbox]{
     transition: opacity ease .5;
   }
   &::before{
-    top:$checkbox-height * 0.75;
-    left: $checkbox-height * 0.30;
+    top:$checkbox-height * 0.76;
+    left: $checkbox-height * 0.31;
     -moz-transform: rotate(-135deg);
     -ms-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
@@ -72,7 +73,8 @@ input[type=checkbox]{
 input[type=checkbox]:checked + .cb-label,
 .cb-label.checked{
 
-  border-color:$checked-color;
+  background: $checked-bg;
+  border-color:$checked-bg;
   &::after{
     border-color:$checked-color;
     height: $checkbox-height * .35;
