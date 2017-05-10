@@ -2,10 +2,15 @@
 $checked-color: #fff;
 $checked-bg:rgb(101,141,181);
 $unchecked-color: #cfcece;
-$checkbox-height: 15px;
+$checkbox-height: 100px;
 $background-color:#fff;
 $font-color:#dcdcdc;
 $duration: .4s;
+.cb-container{
+  width: 1000px;
+  text-align: center;
+  margin-top: 50px;
+}
 
 html, body{
   padding:0;
@@ -23,7 +28,7 @@ input[type=checkbox]{
   height: $checkbox-height;
   width: $checkbox-height;
   background: rgb(249,249,249);
-  border: $checkbox-height * .05 solid $unchecked-color;
+  border: $checkbox-height * .1 solid $unchecked-color;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
