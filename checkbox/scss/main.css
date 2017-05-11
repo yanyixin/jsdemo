@@ -10,7 +10,7 @@ html, body {
   color: #dcdcdc;
   font-family: 'Open Sans'; }
 
-input[type=checkbox] {
+#checkbox {
   display: none; }
 
 .cb-label {
@@ -41,9 +41,9 @@ input[type=checkbox] {
     -webkit-transform-origin: left top;
     transform-origin: left top;
     content: '';
-    -webkit-transition: opacity ease .5;
-    -moz-transition: opacity ease .5;
-    transition: opacity ease .5; }
+    -webkit-transition: opacity ease 0.5s;
+    -moz-transition: opacity ease 0.5s;
+    transition: opacity ease 0.5s; }
   .cb-label::before {
     top: 76px;
     left: 31px;
