@@ -6,13 +6,16 @@
     <link rel="stylesheet" href="scss/main.css">
 </head>
 <body>
-<input type="checkbox" id="checkbox">
-<label for="checkbox" class="cb-label"></label>
+<div class="cb-container">
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox" class="cb-label"></label>
+</div>
+
 <div>
     实现这个动画其实很简单，只运用css就可以实现。实现的原理是绑定checkout和label,用label控制是否checked。点击label的时候改变checkbox的属性
     先将checkbox隐藏，然后label为一个只有border的框框，使用after和befor伪元素来实现对号的两部分。
     先将after和before设置宽度为width*0.4，height为0，设置不同的旋转角度，让befor和after合起来刚好是一个对号。
-    然后用css动画设置使其height达到width*0.7和width*0.35并控制动画使其连贯播放
+    然后用css动画设置使其height达到width*0.7和width*0.35并控制动画使其连贯播放，
 </div>
 </body>
 </html>
