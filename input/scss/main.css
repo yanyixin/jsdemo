@@ -62,7 +62,7 @@
   width: 100%; }
 
 .input-container input:focus + label, .input-container input:not(:placeholder-shown) + label {
-  color: #52616b;
+  color: #52616c;
   -webkit-transform: translate(10px) scale(0.9);
   transform: translate(10px) scale(0.9); }
 
