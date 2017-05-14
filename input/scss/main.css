@@ -51,9 +51,8 @@
   order: 2;
   width: 0;
   height: 2px;
-  background: #2384ea;
-  transition: all 0.3s;
-  transform: translateY(-50%); }
+  background: #658db5;
+  transition: all 0.3s; }
 
 .input-container input:focus {
   border-bottom-color: #fff; }
