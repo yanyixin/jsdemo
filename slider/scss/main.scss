@@ -9,6 +9,10 @@ $arr-height:30px;
 $arr-fontsize:36px;
 $arr-color:#333;
 $arr-bg-color:rgba(0,0,0,0.3);
+*{
+  padding: 0px;
+  margin: 0px;
+}
 #slider{
   border: 1px solid red;
   width: $width;
@@ -29,6 +33,9 @@ $arr-bg-color:rgba(0,0,0,0.3);
   position: absolute;
   left: 0;
   top:0;
+}
+#slider ul li img{
+  width: 100%;
 }
 #slider ul li.active{
   display: block;
@@ -64,6 +71,7 @@ $arr-bg-color:rgba(0,0,0,0.3);
   background: $arr-bg-color;
   top: 50%;
   margin-top: -($arr-height/2);
+  z-index: 2;
 
 }
 #prev{left: 20px}
