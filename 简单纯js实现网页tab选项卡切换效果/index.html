@@ -14,14 +14,14 @@
 <div id="tab" style="margin-left:100px;margin-top:20px">
   <div class="tabList">
 	<ul>
-	  <li class="tabLi" class="cur">热门目的地</li>
-	  <li class="tabLi">限时优惠</li>
-	  <li class="tabLi">精选别墅</li>
-	  <li class="tabLi">精选公寓</li>
+	  <li class="cur">热门目的地</li>
+	  <li>限时优惠</li>
+	  <li>精选别墅</li>
+	  <li>精选公寓</li>
   </ul>
   </div>
   <div class="tabCon">
-	<div class="cur tabDiv">
+	<div style="display: block">
 		<div class="item_container">
 			<div class="item item1" data-index="1"><p></p></div>
 			<div class="item item2" data-index="2"><p></p></div>
@@ -36,47 +36,27 @@
 			<div class="item item11" data-index="11"><p></p></div>
 		</div>
 	</div>
-	<div class="tabDiv">红尘客栈、牛仔很忙、给我一首歌的时间、听妈妈的话</div>
-	<div class="tabDiv">被风吹过的夏天、江南、一千年以后</div>
-	<div class="tabDiv">十年、K歌之王、浮夸</div>
+	<div>红尘客栈、牛仔很忙、给我一首歌的时间、听妈妈的话</div>
+	<div>被风吹过的夏天、江南、一千年以后</div>
+	<div>十年、K歌之王、浮夸</div>
   </div>
+
 </div>
-
+<div class="input-mask">
+	<div class="input-container">
+		<input type="text" id="input">
+		<input type="button" id="button" value="确定">
+	</div>
+</div>
 <script>
-window.onload = function() {
-    var oDiv = document.getElementById("tab");
-    var oLi = oDiv.getElementsByClassName("tabLi");
-    var aCon = oDiv.getElementsByClassName("tabDiv");
-    var timer = null;
-    for (var i = 0; i < oLi.length; i++) {
-        oLi[i].index = i;
-        oLi[i].onmouseover = function() {
-            show(this.index);
-        }
-    }
-    function show(a) {
-        index = a;
-        var alpha = 0;
-        for (var j = 0; j < oLi.length; j++) {
-            oLi[j].className = "";
-            aCon[j].className = "";
-            aCon[j].style.opacity = 0;
-            aCon[j].style.filter = "alpha(opacity=0)";
-        }
-        oLi[index].className = "cur";
-        clearInterval(timer);
-        timer = setInterval(function() {
-            alpha += 2;
-            alpha > 100 && (alpha = 100);
-            aCon[index].style.opacity = alpha / 100;
-            aCon[index].style.filter = "alpha(opacity=" + alpha + ")";
-            alpha == 100 && clearInterval(timer);
-        },
-        5)
-    }
-}
+$(function () {
+	var aLi = $('.tabList ul li')
+	aLi.click(function () {
+		$(this).addClass('cur').siblings().removeClass('cur');
+		var index = $(this).index();
+		$('.tabCon>div').eq(index).show().siblings().hide()
+    })
+})
 </script>
-<!-- 代码 en -->
-
 </body>
 </html>

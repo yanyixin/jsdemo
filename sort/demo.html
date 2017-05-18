@@ -16,9 +16,25 @@
     <div class="list-group-item">It has support for touch devices.</div>
     <div class="list-group-item">Just drag some elements around.</div>
 </div>
+<div class="container" style="margin-top: 100px">
+    <div id="filter" style="margin-left: 30px">
+        <div><div data-force="5" class="layer title title_xl">Editable list</div></div>
 
+        <div style="margin-top: -8px; margin-left: 10px" class="block__list block__list_words">
+            <ul id="editable">
+                <li>Оля<i class="js-remove">✖</i></li>
+                <li>Владимир<i class="js-remove">✖</i></li>
+                <li>Алина<i class="js-remove">✖</i></li>
+            </ul>
+
+            <button id="addUser">Add</button>
+        </div>
+    </div>
+</div>
 <script>
-    // Simple list
+    var byId = function (id) { return document.getElementById(id); },
+
+        // Simple list
     Sortable.create(simpleList, { /* options */ });
 
     // List with handle
@@ -27,6 +43,24 @@
         animation: 150
     });
 
+    byId('addUser').onclick = function () {
+        Ply.dialog('prompt', {
+            title: 'Add',
+            form: { name: 'name' }
+        }).done(function (ui) {
+            var el = document.createElement('li');
+            el.innerHTML = ui.data.name + '<i class="js-remove">✖</i>';
+            editableList.el.appendChild(el);
+        });
+    };
+
+    var editableList = Sortable.create(editable, {
+        filter: '.js-remove',
+        onFilter: function (evt) {
+            var el = editableList.closest(evt.item); // get dragged item
+            el && el.parentNode.removeChild(el);
+        }
+    });
 </script>
 </body>
 </html>
