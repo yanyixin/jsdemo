@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简单纯js实现网页tab选项卡切换效果</title>
+
+	<link rel="stylesheet" href="main.css">
+	<script src="../jquery.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+
+<!-- 代码 begin -->
+<div id="tab" style="margin-left:100px;margin-top:20px">
+  <div class="tabList">
+	<ul>
+	  <li class="tabLi" class="cur">热门目的地</li>
+	  <li class="tabLi">限时优惠</li>
+	  <li class="tabLi">精选别墅</li>
+	  <li class="tabLi">精选公寓</li>
+  </ul>
+  </div>
+  <div class="tabCon">
+	<div class="cur tabDiv">
+		<div class="item_container">
+			<div class="item item1" data-index="1"><p></p></div>
+			<div class="item item2" data-index="2"><p></p></div>
+			<div class="item item3" data-index="3"><p></p></div>
+			<div class="item item4" data-index="4"><p></p></div>
+			<div class="item item5" data-index="5"><p></p></div>
+			<div class="item item6" data-index="6"><p></p></div>
+			<div class="item item7" data-index="7"><p></p></div>
+			<div class="item item8" data-index="8"><p></p></div>
+			<div class="item item9" data-index="9"><p></p></div>
+			<div class="item item10" data-index="10"><p></p></div>
+			<div class="item item11" data-index="11"><p></p></div>
+		</div>
+	</div>
+	<div class="tabDiv">红尘客栈、牛仔很忙、给我一首歌的时间、听妈妈的话</div>
+	<div class="tabDiv">被风吹过的夏天、江南、一千年以后</div>
+	<div class="tabDiv">十年、K歌之王、浮夸</div>
+  </div>
+</div>
+
+<script>
+window.onload = function() {
+    var oDiv = document.getElementById("tab");
+    var oLi = oDiv.getElementsByClassName("tabLi");
+    var aCon = oDiv.getElementsByClassName("tabDiv");
+    var timer = null;
+    for (var i = 0; i < oLi.length; i++) {
+        oLi[i].index = i;
+        oLi[i].onmouseover = function() {
+            show(this.index);
+        }
+    }
+    function show(a) {
+        index = a;
+        var alpha = 0;
+        for (var j = 0; j < oLi.length; j++) {
+            oLi[j].className = "";
+            aCon[j].className = "";
+            aCon[j].style.opacity = 0;
+            aCon[j].style.filter = "alpha(opacity=0)";
+        }
+        oLi[index].className = "cur";
+        clearInterval(timer);
+        timer = setInterval(function() {
+            alpha += 2;
+            alpha > 100 && (alpha = 100);
+            aCon[index].style.opacity = alpha / 100;
+            aCon[index].style.filter = "alpha(opacity=" + alpha + ")";
+            alpha == 100 && clearInterval(timer);
+        },
+        5)
+    }
+}
+</script>
+<!-- 代码 en -->
+
+</body>
+</html>
