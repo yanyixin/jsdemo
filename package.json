@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sunshine940326/jsdemo/issues"
   },
-  "homepage": "https://github.com/sunshine940326/jsdemo#readme"
+  "homepage": "https://github.com/sunshine940326/jsdemo#readme",
+  "dependencies": {
+    "sortablejs": "^1.5.1"
+  }
 }

@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .item{width: 301px;height: 100px;border:1px solid red;margin: 10px;
-            float:left;}
+        .item{display:table;width: 301px;height: 100px;border:1px solid #333;margin: 10px; float:left;}
+        .item p{ display: table-cell;  text-align: center;  height: 100%;  line-height: 100%;  vertical-align: middle;}
         .item_container{width: 1000px}
         .item4,.item5,.item6{
             width: 193px;
         }
         .item1,.item2,.item3,.item8,.item9{height: 222px}
-        .input-container{width: 500px;height: 300px;position: absolute;margin: 100px auto;border: 1px solid cornflowerblue;background: #333;display: none}
+        .input-mask{
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            height: 100%;
+        }
+        .input-container{
+            padding: 30px;
+            display: inline-block;
+            width: 500px;
+            background: #fff;
+            height: 300px;
+            top: 50%;
+            margin-top: -165px;
+            position: absolute;
+            left: 50%;
+            margin-left: -265px;
+        }
+
     </style>
     <script src="../jquery.min.js"></script>
 </head>
@@ -30,22 +50,34 @@
     <div class="item item11" data-order="11"><p></p></div>
 
 </div>
-<div class="input-container">
-    <input type="text" id="input">
-    <input type="button" id="button" value="确定">
+<div class="input-mask">
+    <div class="input-container">
+        <input type="text" id="input">
+        <input type="button" id="button" value="确定">
+    </div>
 </div>
 <script>
+    var order;
+    var inputValue;
     function inputLinstner() {
-
+        inputValue = $('#input').val();
     }
     function click() {
-        _this = this;
-        var order = $(_this).attr("data-order");
+        var _this = this;
+        order = $(_this).attr("data-order");
         console.log(order);
-        $('.input-container').show()
+        $('.input-mask').show()
     }
+    var items = document.getElementsByClassName('item');
+    var item = [];
     $('#button').on('click',function () {
-        $('.input-container').hide()
+        for(var i=0;i<items.length;i++){
+            if(items[i].getAttribute("data-order") == order){
+                items[i].getElementsByTagName('p')[0].innerHTML=inputValue
+            }
+        }
+        $('#input').val("")
+        $('.input-mask').hide()
     })
     $('.item').on('click',click)
     $('#input').on('input',inputLinstner)
