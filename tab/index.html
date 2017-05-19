@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简单纯js实现网页tab选项卡切换效果</title>
+
+	<link rel="stylesheet" href="main.css">
+	<script src="../jquery.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+
+<!-- 代码 begin -->
+<div id="tab" style="margin-left:100px;margin-top:20px">
+  <div class="tabList">
+	<ul>
+	  <li class="cur">热门目的地</li>
+	  <li>限时优惠</li>
+	  <li>精选别墅</li>
+	  <li>精选公寓</li>
+  </ul>
+  </div>
+  <div class="tabCon">
+	<div style="display: block">
+		<div class="item_container">
+			<div class="item item1" data-index="1"><p>1</p></div>
+			<div class="item item2" data-index="2"><p>2</p></div>
+			<div class="item item3" data-index="3"><p>3</p></div>
+			<div class="item item4" data-index="4"><p>4</p></div>
+			<div class="item item5" data-index="5"><p>5</p></div>
+			<div class="item item6" data-index="6"><p>6</p></div>
+			<div class="item item7" data-index="7"><p>7</p></div>
+			<div class="item item8" data-index="8"><p>8</p></div>
+			<div class="item item9" data-index="9"><p>9</p></div>
+			<div class="item item10" data-index="10"><p>10</p></div>
+			<div class="item item11" data-index="11"><p>11</p></div>
+		</div>
+	</div>
+	<div>
+		<div class="ul-container">
+			<input type="button" id="insertEnd" value="添加至末位末尾">
+			<input type="button" id="insert" value="添加至指定位置">
+			<input type="button" id="delete" value="删除">
+			<input type="button" id="edit" value="修改">
+			<ul id="ul-list1">
+				<li>北京</li>
+				<li>上海</li>
+			</ul>
+		</div>
+	</div>
+	<div>被风吹过的夏天、江南、一千年以后</div>
+	<div>十年、K歌之王、浮夸</div>
+  </div>
+
+</div>
+<div class="input-mask">
+	<div class="input-container">
+		<input type="text" id="input">
+		<input type="button" id="button" value="确定">
+	</div>
+</div>
+<div class="ul-input-mask">
+	<div class="ul-input-container">
+		<input type="text" id="ul-input">
+		<input type="button" id="ul-sure-button" value="确定">
+	</div>
+</div>
+<div class="ul-input-mask2">
+	<div class="ul-input-container2">
+		<input type="text" id="ul-input2">
+		<input type="button" id="ul-sure-button2" value="确定">
+	</div>
+</div>
+<div class="ul-input-mask3">
+	<div class="ul-input-container3">
+		<input type="text" id="ul-input3">
+		<input type="button" id="ul-sure-button3" value="确定">
+	</div>
+</div>
+<script>
+$(function () {
+	var aLi = $('.tabList ul li')
+	aLi.click(function () {
+		$(this).addClass('cur').siblings().removeClass('cur');
+		var index = $(this).index();
+		$('.tabCon>div').eq(index).show().siblings().hide()
+    })
+})
+</script>
+</body>
+</html>

@@ -46,7 +46,7 @@ ul,li{list-style:none;}
     width: 193px;
 }
 .item1,.item2,.item3,.item8,.item9{height: 222px}
-.input-mask{
+.input-mask,.ul-input-mask,.ul-input-mask2,.ul-input-mask3{
     position: fixed;
     text-align: center;
     width: 100%;
@@ -54,7 +54,7 @@ ul,li{list-style:none;}
     display: none;
     height: 100%;
 }
-.input-container{
+.input-container,.ul-input-container,.ul-input-container2,.ul-input-container3{
     padding: 30px;
     display: inline-block;
     width: 500px;
@@ -65,4 +65,7 @@ ul,li{list-style:none;}
     position: absolute;
     left: 50%;
     margin-left: -265px;
+}
+.cur{
+    background: yellow;
 }
