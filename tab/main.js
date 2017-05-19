@@ -70,7 +70,7 @@ window.onload=function () {
         if(UlInputValue){
             var newLi = document.createElement('li');
             newLi.innerHTML = UlInputValue;
-            newli.onclick = liChoose;
+            newLi.onclick = liChoose;
             $('#ul-list1').append(newLi)
         }else{
             alert('请输入要插入内容')
@@ -131,8 +131,8 @@ window.onload=function () {
         }else{
             alert('请输入要修改的内容')
         }
-        /*$('.ul-input-mask3').hide();
-        for(var i=0;i<Oli.length;i++){
+        $('.ul-input-mask3').hide();
+        /*for(var i=0;i<Oli.length;i++){
             $(Oli[i]).removeClass('cur')
         }*/
     }
