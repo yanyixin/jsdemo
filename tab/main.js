@@ -1,22 +1,22 @@
 /**
  * Created by supfn on 2017/5/18.
  */
-window.onload=function () {
+window.onload = function () {
 
-    var order;
-    var inputValue;
-    var UlInputValue;
-    var BeforeItemVal;   //保存输入前的值
-    var Oitem = document.getElementsByClassName('item')
-    var items = document.getElementsByClassName('item');
-    var item = [];
+    var order,
+        inputValue,
+        ulInputValue,
+        BeforeItemVal,  //保存输入前的值
+        $item = $('.item'), // jquery取得的dom，前面可以加一个$符号，可以一眼就知道是用jquery取的
+        // $item = document.getElementsByClassName('item'), // ?? 为什么取了两次
+        item = [];
 
     //记录输入框中的值
     function inputLinstner() {
         inputValue = $('#input').val();
-        UlInputValue = $('#ul-input').val();
-        UlInputValue2 = $('#ul-input2').val();
-        UlInputValue3 = $('#ul-input3').val();
+        ulInputValue = $('#ul-input').val(); // 驼峰法命名
+        ulInputValue2 = $('#ul-input2').val();
+        ulInputValue3 = $('#ul-input3').val();
 
     }
 
@@ -24,24 +24,22 @@ window.onload=function () {
     function click() {
         var _this = this;
         order = $(_this).attr("data-index");
-        BeforeItemVal = Oitem[order - 1].getElementsByTagName('p')[0].innerHTML;
+        BeforeItemVal = $item[order - 1].getElementsByTagName('p')[0].innerHTML;
         $('.input-mask').show()
     }
     //点击确定按钮
     $('#button').on('click',function () {
-        for(var i=0;i<items.length;i++){
-            if(items[i].getAttribute("data-index") == order){
-                if( inputValue == undefined){
-                    items[i].getElementsByTagName('p')[0].innerHTML=BeforeItemVal;
-                }else{
-                    items[i].getElementsByTagName('p')[0].innerHTML=inputValue
-                }
-            }
+        if( inputValue == undefined){
+            $(".item[data-index="+order+"]").html(BeforeItemVal);
+        }else{
+            $(".item[data-index="+order+"]").text(inputValue);
         }
         $('#input').val("")
         $('.input-mask').hide()
     })
-    $('.item').on('click',click)
+
+    $('.item').on('click',click);
+
     $('#input').on('input',inputLinstner);
     $('#ul-input').on('input',inputLinstner);
     $('#ul-input2').on('input',inputLinstner);
@@ -55,7 +53,7 @@ window.onload=function () {
     $('#ul-sure-button').on('click',ulSureBtnClick);
     $('#insert').on('click',insertThere);
     $('#ul-sure-button2').on('click',ulSureBtnClick2);
-    $('#ul-sure-button3').on('click',ulSureBtnClick3);
+    $('.submit-button').on('click',ulSureBtnClick3);
     $('#delete').on('click',deleteLi);
     $('#edit').on('click',editLifun)
     var ulList1 = document.getElementById('ul-list1')
@@ -67,9 +65,9 @@ window.onload=function () {
     }
     //新增li至末位
     function ulSureBtnClick() {
-        if(UlInputValue){
+        if(ulInputValue){
             var newLi = document.createElement('li');
-            newLi.innerHTML = UlInputValue;
+            newLi.innerHTML = ulInputValue;
             newLi.onclick = liChoose;
             $('#ul-list1').append(newLi)
         }else{
@@ -88,9 +86,9 @@ window.onload=function () {
     }
     function ulSureBtnClick2() {
 
-        if(UlInputValue2){
+        if(ulInputValue2){
             var newLi = document.createElement('li');
-            newLi.innerHTML = UlInputValue2;
+            newLi.innerHTML = ulInputValue2;
             newLi.onclick = liChoose;
             selectLi.before(newLi)
         }else{
@@ -125,9 +123,9 @@ window.onload=function () {
         }
     }
     function ulSureBtnClick3() {
-        if(UlInputValue3){
+        if(ulInputValue3){
             var newLi = document.createElement('li');
-            selectLi.innerHTML = UlInputValue3;
+            selectLi.innerHTML = ulInputValue3;
         }else{
             alert('请输入要修改的内容')
         }
