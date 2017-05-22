@@ -10,6 +10,7 @@ window.onload=function () {
         ulList1 = document.getElementById('ul-list1');   //获取限时优惠目的地列表
     //使用sortable插件进行拖动
     if(ulList1){
+
         var sortable = Sortable.create(ulList1);
     }
     //记录输入框中的值
