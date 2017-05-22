@@ -1,54 +1,21 @@
 *{margin:0;padding:0;}
 body{font-size:14px;font-family:"Microsoft YaHei";}
 ul,li{list-style:none;}
+/*精选目的地css开始*/
 #ul-list1 li{
     cursor: pointer;
 }
-#tab{position:absolute;width: 1017px;height: 700px}
-#tab .tabList ul li{
-    float:left;
-    background:#fefefe;
-    border:1px solid #ccc;
-    padding:5px 0;
-    width:253.2px;
-    text-align:center;
-    margin-left:-1px;
-    position:relative;
-    cursor:pointer;
-}
-#tab .tabCon{
-    position:absolute;
-    left:-1px;
-    top:32px;
-    border:1px solid #ccc;
-    border-top:none;
-    width:1016px;
-    height:620px;
-}
-#tab .tabCon>div{
-    display: none;
-    padding:10px;
-    position:absolute;
-}
-#tab .tabList li.cur{
-    border-bottom:none;
-    background:#fff;
-}
-#tab .tabCon div.cur{
-    display: block;
-}
+
 .item_container{
     width: 1000px;
     position: relative;
     height: 500px;
     left: 50%;
     margin-left: -500px;
-    /* top: 50%; */
     margin-top: 20px;
 }
 .item{display:table;width: 301px;height: 100px;border:1px solid #333;margin: 10px; float:left;}
 .item:hover{
-
     background: url("img/modify.png")no-repeat center center;
     background-color: rgb(209,209,209);
 }
@@ -83,9 +50,6 @@ ul,li{list-style:none;}
     margin-left: -175px;
     text-align: left;
 }
-.cur{
-    background: yellow;
-}
 .input-container p,.ul-input-container2 p,.ul-input-container3 p{
     width: 300px;
     font-size: 14px;
@@ -110,6 +74,8 @@ input[type=button]{
     position: absolute;
     margin-top: 20px;
 }
+/*精选目的地css结束*/
+/*限时优惠css开始*/
 #ul-list1{
     border: 1px solid #cfcece;
     margin-top: 20px;
@@ -143,3 +109,4 @@ input[type=button]{
     line-height: 26px;
     vertical-align: middle;
 }
+/*限时优惠css结束*/
