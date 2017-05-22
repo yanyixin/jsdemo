@@ -5,62 +5,22 @@
     <title>Title</title>
     <script src="../node_modules/sortablejs/Sortable.min.js"></script>
     <style>
+        #items{
+            cursor: pointer;
+        }
 
     </style>
 </head>
 <body>
-<div id="simpleList" class="list-group">
-    <div class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></div>
-    <div class="list-group-item">It works with Bootstrap...</div>
-    <div class="list-group-item">...out of the box.</div>
-    <div class="list-group-item">It has support for touch devices.</div>
-    <div class="list-group-item">Just drag some elements around.</div>
-</div>
-<div class="container" style="margin-top: 100px">
-    <div id="filter" style="margin-left: 30px">
-        <div><div data-force="5" class="layer title title_xl">Editable list</div></div>
+<ul id="items">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ul>
 
-        <div style="margin-top: -8px; margin-left: 10px" class="block__list block__list_words">
-            <ul id="editable">
-                <li>Оля<i class="js-remove">✖</i></li>
-                <li>Владимир<i class="js-remove">✖</i></li>
-                <li>Алина<i class="js-remove">✖</i></li>
-            </ul>
-
-            <button id="addUser">Add</button>
-        </div>
-    </div>
-</div>
 <script>
-    var byId = function (id) { return document.getElementById(id); },
-
-        // Simple list
-    Sortable.create(simpleList, { /* options */ });
-
-    // List with handle
-    Sortable.create(listWithHandle, {
-        handle: '.glyphicon-move',
-        animation: 150
-    });
-
-    byId('addUser').onclick = function () {
-        Ply.dialog('prompt', {
-            title: 'Add',
-            form: { name: 'name' }
-        }).done(function (ui) {
-            var el = document.createElement('li');
-            el.innerHTML = ui.data.name + '<i class="js-remove">✖</i>';
-            editableList.el.appendChild(el);
-        });
-    };
-
-    var editableList = Sortable.create(editable, {
-        filter: '.js-remove',
-        onFilter: function (evt) {
-            var el = editableList.closest(evt.item); // get dragged item
-            el && el.parentNode.removeChild(el);
-        }
-    });
+    var el = document.getElementById('items');
+    var sortable = Sortable.create(el);
 </script>
 </body>
 </html>

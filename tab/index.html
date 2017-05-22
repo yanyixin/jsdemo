@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>简单纯js实现网页tab选项卡切换效果</title>
-
 	<link rel="stylesheet" href="main.css">
 	<script src="../jquery.min.js"></script>
 	<script src="main.js"></script>
+	<script src="../node_modules/sortablejs/Sortable.js"></script>
 </head>
 <body>
 
@@ -78,6 +78,8 @@
 	</div>
 </div>
 <script>
+	var ulList1 = document.getElementById('ul-list1');
+    var sortable = Sortable.create(ulList1);
 $(function () {
 	var aLi = $('.tabList ul li'); // 这个ali是什么意思，在命名上不够语义化
 	aLi.click(function () {

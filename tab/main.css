@@ -1,7 +1,9 @@
 *{margin:0;padding:0;}
 body{font-size:14px;font-family:"Microsoft YaHei";}
 ul,li{list-style:none;}
-
+#ul-list1 li{
+    cursor: pointer;
+}
 #tab{position:absolute;width: 1017px;height: 700px}
 #tab .tabList ul li{
     float:left;
